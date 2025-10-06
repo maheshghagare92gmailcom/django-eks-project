@@ -6,9 +6,7 @@ resource "aws_ecr_repository" "app" {
   image_scanning_configuration {
     scan_on_push = true
   } 
-  lifecycle {
-    prevent_destroy = true  # ✅ This keeps the repo even when running terraform destroy
-  }
+  
 }
 
 
@@ -21,10 +19,7 @@ resource "aws_ecr_repository" "proxy" {
   image_scanning_configuration {
     scan_on_push = true
   }
-   lifecycle {
-    prevent_destroy = true  # ✅ This keeps the repo even when running terraform destroy
-  }
-
+   
 }
 
 resource "aws_iam_policy" "allow_ecr_app" {
